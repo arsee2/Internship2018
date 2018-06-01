@@ -1,3 +1,5 @@
+import com.comp.PerspectiveDestortionRemoving;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -41,14 +43,14 @@ class ImageFrame extends JFrame{
 
 class ImageComponent extends JComponent{
     private static final long serialVersionUID = 1L;
-    private Image image;
+    private BufferedImage image;
     public ImageComponent(){
         try{
-            File image2 = new File("bishnu.jpg");
+            
            Graphics g ;
            // g.drawRect(0,0,100,100);
-            image = new BufferedImage(500,500,BufferedImage.TYPE_INT_RGB) ;
-
+            image = ImageIO.read(new File("building.jpg"));
+            PerspectiveDestortionRemoving.remove(image);
 
             image.getGraphics().drawRect(0,0,100,100);
            // image = ImageIO.read(image2);
