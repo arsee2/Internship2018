@@ -62,6 +62,8 @@ public class PerspectiveDestortionRemoving {
         double[] b = getMatrix(p11,p12,p21,p22).getValue();
         double x []= LinearAlgebra.solve(A,b);
         double matrixH [][] = {{1,x[0],x[1]},{x[2],x[3],x[4]},{x[5],x[6],x[7]}};
+        double inv [][] = LinearAlgebra.invert(matrixH);
+
         return null;
     }
 }

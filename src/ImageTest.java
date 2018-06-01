@@ -1,3 +1,4 @@
+import com.comp.LinearAlgebra;
 import com.comp.PerspectiveDestortionRemoving;
 
 import java.awt.*;
@@ -41,19 +42,24 @@ class ImageFrame extends JFrame{
 }
 
 
-class ImageComponent extends JComponent{
+class   ImageComponent extends JComponent{
     private static final long serialVersionUID = 1L;
     private BufferedImage image;
+    //______
     public ImageComponent(){
         try{
             
            Graphics g ;
-           // g.drawRect(0,0,100,100);
-            image = ImageIO.read(new File("building.jpg"));
-            PerspectiveDestortionRemoving.remove(image);
 
+            image = ImageIO.read(new File("building.jpg"));
+            //PerspectiveDestortionRemoving.remove(image);
+            double [][] m={{1,2},{3,4}};
+            double b [] ={1,2};
+            double[]n=LinearAlgebra.solve(m,b);
+            LinearAlgebra.printMatrix(n);
+            System.out.print(n.length+"|");
             image.getGraphics().drawRect(0,0,100,100);
-           // image = ImageIO.read(image2);
+
 
         }
         catch (Exception e){
