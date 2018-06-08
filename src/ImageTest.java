@@ -1,3 +1,4 @@
+import com.comp.LSD;
 import com.comp.LinearAlgebra;
 import com.comp.PerspectiveDestortionRemoving;
 
@@ -53,12 +54,10 @@ class   ImageComponent extends JComponent{
 
             image = ImageIO.read(new File("building.jpg"));
             //PerspectiveDestortionRemoving.remove(image);
-            double [][] m={{1,2},{3,4}};
-            double b [] ={1,2};
-            double[]n=LinearAlgebra.solve(m,b);
-            LinearAlgebra.printMatrix(n);
-            System.out.print(n.length+"|");
-            image.getGraphics().drawRect(0,0,100,100);
+
+           //image = PerspectiveDestortionRemoving.remove(image);
+           LSD lsd = new LSD(image);
+           image = lsd.gradientVisualisation();
 
 
         }
